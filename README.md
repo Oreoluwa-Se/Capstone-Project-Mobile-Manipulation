@@ -5,7 +5,38 @@
 
 ![Initial_image](http://hades.mech.northwestern.edu/images/3/33/Yb-book.png)
 
-# Project Directory
+# Project Directory:
+The project directory should be similar to:
+```
+├── mr                         # contains library files required to run program
+│   ├── ...
+|── constants                  # stores the preset values for operating                   
+│   ├── PresetValues.m
+│   ├── ...
+├── helper                     
+│   ├── ChassisChange.m        # helper function used to find the new base location
+│   ├── Controller.m           # simulates the PI controller   
+│   ├── ForwardKinematics.m    # calculates the current component location
+│   ├── Hmatrix.m              # used to calculate required twist
+│   ├── JointLimitCheck.m      # limits joint motion
+│   ├── NextState.m            # finds the joint and wheel velocities
+│   ├── T_Generation.m         # constructs the rotation and location vectors 
+│   ├── TestLimit.m            # limits joint angles
+│   ├── Test_Delta.m           # calculates time for movement in each segment
+│   ├── Traj_conv.m            # converts trajectories to 1x13 array
+│   ├── TrajectoryGenerator.m  # generates the end effector motion
+├── result
+│   ├── Best                    # best result for task given
+│   ├── ...
+│   ├── NewTask                 # best result for random task
+│   ├── ...
+│   ├── Overshoot               # result with system overshoot
+│   ├── ...
+│   ├── StartPoint              # after first trial
+│   ├── ...
+├── Readme.md
+├── main.mlx
+```
 
 # How To Use:
 1. The code works with an '\mr' folder that can be [downloaded](https://github.com/NxRLab/ModernRobotics) and should be put in the root folder as shown above. The folder should be added to the path.
@@ -27,5 +58,14 @@
 		* Total simulation time
 
 # Results:
-The best way I found in manipulating the controller gain is to slowly increase the proportional gain till the system shows signs of over shoot. As shown below:
+The best way I found in manipulating the controller gain is to slowly increase the Proportional gain [Kp] till the system shows signs of over shoot. As shown below:
+
 <img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 100%;"/>
+
+Then reduce the proportional gain and slowly increase the Integral gain until a settled motion is reached:
+
+<img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 100%;"/>
+
+# Additional:
+The code used is heavily commented and should be easy to follow through. If there's any confusion or suggested improvements my email is olumidegodson12@gmail.com
+
