@@ -1,5 +1,5 @@
 # Capstone-Project-Mobile-Manipulation
-* This repo is for the Capstone project from the [Mordern Robotics: Mechanics, Planning, and Control Specialization](https://www.coursera.org/specializations/modernrobotics) on coursera.
+* This repo is for the Capstone project from the [Mordern Robotics: Mechanics, Planning, and Control Specialization](https://www.coursera.org/specializations/modernrobotics) on Coursera.
 * The goal is to [move and plan]() the trajectory for the end-effector on a 5R robot arm articulated on a four mecanum wheels mobile base to move a cube from one to another specific location.
 * Details of the capstone project can be found [here](http://hades.mech.northwestern.edu/index.php/Mobile_Manipulation_Capstone)
 
@@ -22,17 +22,17 @@ The project directory should be similar to:
 │   ├── NextState.m            # finds the joint and wheel velocities
 │   ├── T_Generation.m         # constructs the rotation and location vectors 
 │   ├── TestLimit.m            # limits joint angles
-│   ├── Test_Delta.m           # calculates time for movement in each segment
+│   ├── Test_Delta.m           # calculates the motion duration for each segment
 │   ├── Traj_conv.m            # converts trajectories to 1x13 array
 │   ├── TrajectoryGenerator.m  # generates the end effector motion
 ├── result
-│   ├── Best                    # best result for task given
+│   ├── Best                   # best result for the capstone task
 │   ├── ...
-│   ├── NewTask                 # best result for random task
+│   ├── NewTask                # best result for a user defined task
 │   ├── ...
-│   ├── Overshoot               # result with system overshoot
+│   ├── Overshoot              # result with system overshoot
 │   ├── ...
-│   ├── StartPoint              # after first trial
+│   ├── StartPoint             # first attempt results
 │   ├── ...
 ├── Readme.md
 ├── main.mlx
@@ -40,8 +40,8 @@ The project directory should be similar to:
 
 # How To Use:
 1. The code works with an '\mr' folder that can be [downloaded](https://github.com/NxRLab/ModernRobotics) and should be put in the root folder as shown above. The folder should be added to the path.
-2. Run the 'main.mlx' which is heavily commented if interested. The script generates:
-	* A file used to simulare the robot motion in *CoppeliaSim* called 'Path.csv'
+2. The heavily commented 'main.mlx' generates:
+	* A file used to simulate the robot motion in *CoppeliaSim* called 'Path.csv'
 	* An 'Xerr.csv' file that documents the end effector error at given instances.
 3. Upon execution, the *user* can either select preset values, or have acess to change the following paramenters:
 	* Controller gain: Proportional [Kp], Integral [Ki]
@@ -60,12 +60,12 @@ The project directory should be similar to:
 # Results:
 The best way I found in manipulating the controller gain is to slowly increase the Proportional gain [Kp] till the system shows signs of over shoot. As shown below:
 
-<img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 100%;"/>
+<img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 150%;"/>
 
-Then reduce the proportional gain and slowly increase the Integral gain until a settled motion is reached:
+Then reduce the proportional gain by halfand slowly increase the Integral gain until a settled motion is reached:
 
-<img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 100%;"/>
+<img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 150%;"/>
 
 # Additional:
-The code used is heavily commented and should be easy to follow through. If there's any confusion or suggested improvements my email is olumidegodson12@gmail.com
+The code used is heavily commented and should be easy to follow through. If there's any confusion or suggested improvements, my email is olumidegodson12@gmail.com
 
