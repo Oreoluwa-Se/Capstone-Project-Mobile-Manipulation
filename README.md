@@ -59,9 +59,9 @@ The project directory should be similar to:
 
 # Results:
 The best way I found in manipulating the controller gain is to slowly increase the Proportional gain [Kp] till the system shows signs of over shoot. As shown below:
-
-![Overshoot_image](./result/Overshoot/Overshoot.gif)
-
+<p align="center">
+<img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 150%;"/>
+</p>
 Then reduce the proportional gain by halfand slowly increase the Integral gain until a settled motion is reached:
 
 <img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 150%;"/>
