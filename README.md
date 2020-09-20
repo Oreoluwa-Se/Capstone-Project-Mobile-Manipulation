@@ -10,7 +10,7 @@ The project directory should be similar to:
 ```
 ├── mr                         # contains library files required to run program
 │   ├── ...
-|── constants                  # stores the preset values for operating                   
+│── constants                  # stores the preset values for operating                   
 │   ├── PresetValues.m
 │   ├── ...
 ├── helper                     
@@ -47,10 +47,10 @@ The project directory should be similar to:
 	* Controller gain: Proportional [Kp], Integral [Ki]
 	* Chassis parameters: Chasis start configuration, Initial and Final cube locations
 	* Gripper parameters:
-		* Initial gripper state 1-closed, 0-open
+		* Initial gripper state
 		* Number of trajectories per second [k]
-		* Motion type 1 = Screw motion, 2 = Cartesian 
-		* Time scaling 3 = Cubic, 5 = Quintic
+		* Motion type: Screw motion, Cartesian, or a random mix of both 
+		* Time scaling: Cubic or Quintic
 	* Other parameters include:
 		* Maximum wheel speed
 		* Maximum joint speed
@@ -58,13 +58,14 @@ The project directory should be similar to:
 		* Total simulation time
 
 # Results:
-The best way I found in manipulating the controller gain is to slowly increase the Proportional gain [Kp] till the system shows signs of over shoot. As shown below:
+The best way I found manipulating the controller gain is to slowly increase the Proportional gain [Kp] until the system shows signs of overshoot. As shown below:
 <p align="center">
-<img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 150%;"/>
+<img src="./result/Overshoot/Overshoot.gif" alt="SystemOvershoot" style="zoom: 200%;"/>
 </p>
-Then reduce the proportional gain by halfand slowly increase the Integral gain until a settled motion is reached:
-
-<img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 150%;"/>
+Then reduce the proportional gain by half and slowly increase the Integral gain [Ki] until a settled motion is reached:
+<p align="center">
+<img src="./result/NewTask/Overshoot-Sorted.gif" alt="SystemOvershoot-Sorted" style="zoom: 200%;"/>
+</p>
 
 # Additional:
 The code used is heavily commented and should be easy to follow through. If there's any confusion or suggested improvements, my email is olumidegodson12@gmail.com
